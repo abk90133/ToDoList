@@ -1,0 +1,29 @@
+<%- include("header") %>
+
+    <div class="box" id="heading">
+
+      <h1> <%= listTitle %> </h1>
+    </div>
+
+    <div class="box">
+      <%  for (let i=0; i<newListItems.length; i++){  %>
+        <div class="item">
+          <input type="checkbox" >
+          <p> <%= newListItems[i] %> </p>
+          <!-- MOST IMPORTANT is that we have used the <p> tag here because the para tag not allow any oyher line to sit inside it, so by default,
+             it will be sent to the new line -->
+        </div>
+
+      <% } %>
+      <!-- AS IT IS NOT A PART OF THE HTML TAG AND IT IS IN THE EJS FILE SO WE HAVE TO FOLLOW THE FORMAT -->
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="value"  placeholder="What you want to add?" autocomplete="off">
+        <!-- //here the autocomplete="off" is basically used to not get the suggestions when we want to add any item -->
+        <button type="submit" name="list" value=<%= listTitle %> >Add</button>
+        <!-- we have kept the logic here so that it will enable the entry to the point only where the entry is made. ie. to /contact or /work -->
+        <!-- and also it will redirect the entry to the homeroute -->
+      </form>
+      </div>
+
+<%- include("footer") %>
